@@ -1,0 +1,41 @@
+FOR GPT-3.5 TURBO 8K MODEL
+
+OUTPUT : QUESTIONS FOR STUDENTS
+
+assumptions:
+    - question : 40 tokens
+    - mcqs : 20 tokens
+    - each set : 4 questions 
+    - each class : 60 ppl
+    - no of sections : 10
+    - one sem : 15 lab sessions
+TOTAL TOKENS : 60 tokens * 4 * 60 * 10 = 1,44,000 tokens
+
+Pricing for output : $0.002 / 1k tokens -> $ 0.288
+
+15 lab sessions - $0.288 * 15
+
+MONEY MONEY MONEY FOR OUTPUT = $ 4.32
+
+--------------------------------------------------------
+
+INPUT : TO READ STUDENTS CODE
+
+assumptions: 
+    - 1 student writes 500 words in each lab sessions
+    - total students = 60*10 = 600
+    - one sem has 15 lab sessions 
+
+TOTAL TOKENS = 500 * 600 =  3,00,000
+
+Pricing for input : $0.0015 / 1k tokens -> $0.45
+
+15 lab sessions - $0.45 * 15
+
+MONEY MONEY MONEY FOR INPUT = $ 6.75
+
+-------------------------------------------------------
+
+TOTAL ACTUAL MONEY MONEY MONEY = INPUT + OUTPUT = $11.07
+
+$11.07 = 915.78 Rs
