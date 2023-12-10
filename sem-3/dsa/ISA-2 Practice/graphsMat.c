@@ -126,7 +126,7 @@ int main(int argc, char *argv[]) {
     }
   }
   clearVisit(visited);
-  printf("cupcake says hi to you bf!\n");
+  printf("cupcake says hi to you!\n");
   bfs(mat, sour, visited);
   for (int i = 0; i < MAXI; i++) {
     if (visited[i] == 0 && eleExit(mat, i)) {
