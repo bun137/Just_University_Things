@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct trie {
   struct trie *children[26];
@@ -49,6 +50,39 @@ void search(TRIE *root, char *exp) {
   }
 }
 
+int isKhali(TRIE *root) {
+  for (int i = 0; i < 26; i++) {
+    if (root->children[i] != NULL) {
+      return 0;
+    }
+  }
+  return 1;
+}
+
+TRIE *delete(TRIE *root, char *str, int level, int strleng) {
+  if (root == NULL) {
+    return root;
+  }
+  if (level == strleng) {
+    if (root->eof == -1) {
+      root->eof = 0;
+    }
+    if (isKhali(root)) {
+      free(root);
+      root = NULL;
+    }
+    return root;
+  }
+  int index = str[level] - 'a';
+  root->children[index] =
+      delete (root->children[index], str, level + 1, strleng);
+  if (root->eof == 0 && isKhali(root)) {
+    free(root);
+    root = NULL;
+  }
+  return root;
+}
+
 int main(int argc, char *argv[]) {
   // menu driven program
   TRIE *root = createNode();
@@ -58,6 +92,7 @@ int main(int argc, char *argv[]) {
     printf("1. Insert\n");
     printf("2. Search\n");
     printf("3. Exit\n");
+    printf("4. Delete\n");
     printf("Enter your choice: ");
     scanf("%d", &choice);
     switch (choice) {
@@ -73,6 +108,11 @@ int main(int argc, char *argv[]) {
       break;
     case 3:
       exit(0);
+    case 4:
+      printf("Enter the word to be deleted: ");
+      scanf("%s", exp);
+      delete (root, exp, 0, strlen(exp));
+      break;
     default:
       printf("Invalid choice!\n");
     }
