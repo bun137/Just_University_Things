@@ -32,6 +32,7 @@ int pushi(STACKI *ptr_to_sti, int top_ele){
     }else{
         (ptr_to_sti->top_ele)++;
         ptr_to_sti->ptr_to_top[ptr_to_sti->top_ele] = top_ele;
+    return 1;
     }
 }
 
