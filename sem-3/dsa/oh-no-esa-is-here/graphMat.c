@@ -26,6 +26,25 @@ void dfs(int mat[MAX][MAX], int arr[], int source) {
   }
 }
 
+void dfsPath(int mat[MAX][MAX], int source, int destination, int *count,
+             int path[MAX], int arr[]) { // DOESNT WORKK!
+  path[*count++] = source;
+  arr[source] = 1;
+  if (source == destination) {
+    for (int i = 0; i < (*count); i++) {
+      printf("%d ", path[i]);
+    }
+  } else {
+    for (int i = 0; i < MAX; i++) {
+      if (mat[source][i] && !arr[i]) {
+        dfsPath(mat, i, destination, count, path, arr);
+      }
+    }
+  }
+  arr[source] = 0;
+  (*count)--;
+}
+
 void bfs(int mat[][MAX], int arr[], int source) {
   int que[MAX];
   int f = 0;
@@ -104,7 +123,7 @@ int main(int argc, char *argv[]) {
     printf("\n\n1. Enter Edges\n2. DFS\n3. BFS\n4.Connection\n0. Exit\n");
     printf("Enter choice: ");
     scanf("%d", &choice);
-    int v1, v2, source, visited[MAX];
+    int v1, v2, source, destination, count, path[MAX], visited[MAX];
     switch (choice) {
     case 1:
       while (1) {
@@ -153,6 +172,13 @@ int main(int argc, char *argv[]) {
       } else {
         printf("no network here, no connection only pa :facepalm:\n");
       }
+    case 5: // DOESNT WORK, SOME BLACK MAGIC THIS IS!
+      printf("dfs path hereee\n");
+      printf("enter the source: ");
+      scanf("%d", &source);
+      printf("enter the destination: ");
+      scanf("%d", &destination);
+      dfsPath(mat, source, destination, &count, path, visited);
     case 0:
       return EXIT_SUCCESS;
     }
