@@ -1,4 +1,4 @@
-;Write a program to find GCD of two numbers.
+;Write a program to find GCD of two numbers. 
 
 MOV R0, #12
 MOV R1, #60
