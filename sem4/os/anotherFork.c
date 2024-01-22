@@ -10,7 +10,7 @@ int main(){
     printf("this is parent, pid = %d, y = %d\n", getpid(), y);
   }else if(p1 == 0){
     y = y + 1;
-    printf("this is child, pid = %d, y = %d\n", getpid(), y);
+    printf("this is child, pid = %d, y = %d\n ppid = %d\n", getpid(), y, getppid());
   }else{
     printf("fork failed\n");
   }
