@@ -1,0 +1,4 @@
+MOV R0,#3
+MOV R1,#4
+STMEA R13, {R0,R1}
+
