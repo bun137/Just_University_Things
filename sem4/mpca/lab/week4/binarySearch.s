@@ -1,0 +1,38 @@
+	.DATA
+	A : .WORD 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
+	.TEXT
+
+L1:
+	LDR R3, =A
+	ADD R4, R0, R1
+	MOV R4, R4, ASR #1
+	MUL R5, R4, R6
+	SUB R5, R5, #4
+	ADD R3, R3, R5
+	LDR R3, [R3]
+	CMP R3, R2
+	BEQ DONE
+	BLT LESS
+	BGT GREATER
+
+LESS:
+	ADD R0, R4, #1
+	B   CHECK
+
+GREATER:
+	ADD R1, R4, #-1
+	B   CHECK
+
+DONE:
+	MOV R8, #1
+	SWI 0X11
+
+CHECK:
+	CMP R0, R1
+	BGT END
+	BNE L1
+
+END:
+	MOV R8, #0
+	SWI 0X11
