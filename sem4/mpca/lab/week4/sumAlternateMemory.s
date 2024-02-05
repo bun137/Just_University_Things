@@ -1,0 +1,32 @@
+	.DATA
+
+ODD:
+	.WORD 0
+
+EVEN:
+	.WORD 0
+
+A:
+	.WORD 1, 2, 3, 4, 5, 6
+
+	.TEXT
+	MOV R0, #3
+	MOV R1, #0
+	MOV R2, #0
+	LDR R3, =A
+	LDR R4, =A
+	ADD R3, R3, #4
+
+L1:
+	LDR R6, [R4]
+	ADD R2, R2, R6
+	ADD R4, R4, #8
+	SUB R0, R0, #1
+	CMP R0, #0
+	BNE L1
+	BEQ L2
+
+L2:
+	LDR R7, =EVEN
+	STR R2, [R7]
+	SWI 0X011
