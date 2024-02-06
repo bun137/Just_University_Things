@@ -14,6 +14,5 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 break
             upper_data=data.decode().upper(data)
             conn.sendall(upper_data.encode())
-            
-
+s.close()
 
