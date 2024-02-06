@@ -12,7 +12,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             data = conn.recv(1024)
             if not data:
                 break
-            conn.sendall(data)
-            print(data)
+            upper_data=data.decode().upper(data)
+            conn.sendall(upper_data.encode())
+            
 
 
