@@ -12,3 +12,10 @@ int main() {
   printf("Hello World!,process_id(pid)=%d\n", getpid());
   return 0;
 }
+
+// to run this code:
+// cc -static fork.c
+// cc -static fork.c -o fork
+// ./fork
+// cc fork.c -o fork1
+// ./fork1
