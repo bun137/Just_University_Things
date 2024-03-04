@@ -23,6 +23,5 @@ int main() {
     sprintf(x_str, "%d", x);
     sprintf(y_str, "%d", y);
     execl("./q3_helper", "./q3_helper", x_str, y_str, (char *)NULL);
-    perror("exec failed!");
   }
 }

@@ -17,6 +17,5 @@ int main() {
     return 0;
   } else {
     execl("/usr/bin/ps", "/usr/bin/ps", (char *)NULL);
-    perror("exec failed!");
   }
 }

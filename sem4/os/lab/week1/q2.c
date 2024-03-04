@@ -8,7 +8,6 @@
 #include <sys/wait.h>
 #include <unistd.h>
 int arr[] = {1, 6, 2, 4, 5, 8, 9, 0};
-
 void sort_array() {
   int n = sizeof(arr) / sizeof(arr[0]);
   int temp;
@@ -22,7 +21,6 @@ void sort_array() {
     }
   }
 }
-
 void display_array() {
   int n = sizeof(arr) / sizeof(arr[0]);
   for (int i = 0; i < n; i++) {
@@ -30,7 +28,6 @@ void display_array() {
   }
   printf("\n");
 }
-
 int main() {
   pid_t pid = fork();
   if (pid == -1) {
