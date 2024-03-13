@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>HTML Manipulation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+  <div class="parent">
+    <div class="child1">I'm the first child</div>
+    <div class="child2">I'm the second child</div>
+  </div>
+
+
+  <script>
+    // creating nodes:
+
+    //creating html node:
+    const child3 = document.createElement("div");
+    child3.innerText = "I am child 3. I was just created (ahem)";
+    const child4 = document.createElement("div");
+    child4.innerText = "I am child 4. I'm gonna replace child2.";
+    // creating text node:
+    const text_child = document.createTextNode("Hi! I am the text node. I am just text, not a node. Idk why they call me text node");
+
+
+    const parent = document.querySelector(".parent");
+    const child2 = document.querySelector(".parent > .child2");
+    // .parent > child2 is a selector. I am trying to select .child2 who would be the child of .parent. I could have just given .child2 and it would still work since there is only one child2 in the entire doc. To target things better, we use the > syntax to select .child2 which is inside .parent only
+
+
+    // appendChild is used to append a child as the last child to a parent node
+    parent.appendChild(text_child); // text_child (const) is now child of parent-
+
+    // insertBefore is used to insert a node before a specific child node
+    // syntax: insertBefore(newNode, referenceNode)
+    parent.insertBefore(child3, child2); // child 3 goes in between child 1 and child 2. Don't ask me why
+
+    // // replacing child2 with child4
+    // // syntax: replaceChild(newChild, oldChild)
+    parent.replaceChild(child4, child2); //Fuck child2, you get deleted and child4 is created in place of you AND YOUR CONTENTS ARE GONE! haha sucker
+
+    // // removing a child. let's remove child 4. too much cock it's showing
+    // // syntax: removeChild(child)
+    parent.removeChild(child4);
+    
+    // // lastly, let's remove the parent only
+    parent.remove(); // removed parent to children are gone-
+
+
+  </script>
+</body>
+
+</html>

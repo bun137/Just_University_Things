@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    console.log(self);
+    
+    let workerMAD = new Worker("web_worker_ka_js.js");
+    workerMAD.postMessage("helloo -_- understood!");
+    console.log(workerMAD);
+    // workerMAD.onmessage()
+    
+    workerMAD.onmessage = (gettingMessage) => {
+        console.log(gettingMessage.data);
+    }
+    
+
+    workerMAD.postMessage("haha sucker I win");
+
+
+
+    // let workeri = new Worker("web_worker_ka_js.js");
+    // workeri.postMessage("complex af-!");
+    // // console.log(workeri);
+    // // workerMAD.onmessage()
+    // workeri.onmessage = (gettingMessage) => {
+    //     console.log(gettingMessage.data);
+    // }
+    </script>
+</html>

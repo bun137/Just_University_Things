@@ -1,0 +1,82 @@
+<html>
+<head>
+    <title>PES Re-eval form</title>
+    <link href="reeval.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="topparti">
+        <img src="pesu.png" class="logo">
+        <h2>PES UNIVERSITY</h2>
+    </div>
+    <form onsubmit="submitForm(event)">
+        <table border="border">
+            <caption>Re-Evalutation Request Form</caption>
+            <tr>
+                <th>Name <span class="star">*</span></th>
+                <td><input type="text" id="name" required></td>
+            </tr>
+            <tr>
+                <th>SRN <span class="star">*</span></th>
+                <td><input type="text" id="srn" required></td>
+            </tr>
+            <tr>
+                <th>Email <span class="star">*</span></th>
+                <td><input type="email" id="email" required></td>
+            </tr>
+            <tr>
+                <th>Mobile Number <span class="star">*</span></th>
+                <td><input type="number" id="number" required></td>
+            </tr>
+            <tr>
+                <th>Semester <span class="star">*</span></th>
+                <td><select name="sem" id="sem" required>
+                        <option value="none">none</option>
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="7">7</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Gender <span class="star">*</span></th>
+                <td><input type="radio" name="gender" value="female">Female
+                    <input type="radio" name="gender" value="male">Male
+                </td>
+            </tr>
+            <tr>
+                <th><label for="subject">Subject <span class="star">*</span></label></th>
+                <td><input type="text" id="subject" required></td>
+            </tr>
+            <tr>
+                <th><label for="date">Date to view<span class="star">*</span></label></th>
+                <td><input type="date" id="date" required></td>
+            </tr>
+            <tr>
+                <th><label for="details">Fill in other details <span class="star">*</span></label></th>
+                <td><textarea id="details" required></textarea></td>
+            </tr>
+            <tr>
+                <th>Conformation <span class="star">*</span></th>
+                <td><input type="checkbox" id="confirm" required>
+                    <label for="confirm">I confirm that all the details are appropriate.</label>
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <td>
+                    <input type="submit" value="Sumbit">
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            alert("Successfully submitted!");
+        }
+    </script>
+</body>
+
+</html>

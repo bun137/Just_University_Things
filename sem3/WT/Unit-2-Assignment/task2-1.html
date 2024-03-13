@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .hidden-div {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p id="p_tag">This is a paragraph</p>
+
+    <script>
+        $(document).ready(function () {
+            var string = $('<b>"I love jQuery!!!"</b>');
+            $('#p_tag').prepend(string);
+        });
+    </script>
+</body>
+</html>

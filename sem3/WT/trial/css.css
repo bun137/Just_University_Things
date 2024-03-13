@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(83, 116, 192);
+    color: #ffffff;
+  }
+  input[type="text"],input[type ="email"],input[type ="number"], textarea {
+
+    background-color : #b4b4df; 
+  
+  }
+  
+  .star{
+    color: rgb(255, 255, 255);
+  }
+
+  .logoh1 {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  table {
+    border-collapse: collapse;
+    margin: 0 auto;
+  }
+  
+  caption {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  th, td {
+    padding: 8px;
+    border: 2.5px solid rgb(15, 15, 15);
+  }
+  
+  th {
+    text-align: right;
+  }
+  
+  textarea {
+    width: 300px;
+    height: 100px;
+  }
+  
+  input[type="submit"], input[type="reset"] {
+    padding: 5px 10px;
+    background-color: #ffffff;
+  }
+   

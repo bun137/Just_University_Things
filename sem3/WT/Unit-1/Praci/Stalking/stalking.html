@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stalking 1-o-1</title>
+</head>
+<body>
+    <div class="printi">
+        
+    </div>
+</body>
+<script>
+    // console.log(navigator);
+    const iklocation =document.querySelector(".printi");
+
+    const success = function (pos){ // pos == position
+        console.log("successsi!!");
+        console.log(pos);
+        iklocation.innerHTML = pos.coords.latitude + "," + pos.coords.longitude;
+    }
+    const error = () => {
+        console.log("faillliii");
+        iklocation.innerHTML = "hehe I still know your location- , failed to see your location"
+    }
+    
+    navigator.geolocation.getCurrentPosition(success, error);
+  
+
+</script>
+</html>

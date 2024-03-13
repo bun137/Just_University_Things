@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="gameContainer">
+  <h1 id="Heading">Halo 2 video game</h1>
+  <p id="Price">Price $50.00</p>
+</div>
+<script>
+    let heading = document.getElementById("Heading");
+    let price = document.getElementById("Price");
+    heading.addEventListener("click", function() {
+      alert("The discount sale is going to end");
+    },false);
+
+    price.addEventListener("click", function() {
+        this.style.color = "red";
+        this.style.fontSize = "50px";
+    },false);
+</script>
+</body>
+</html>

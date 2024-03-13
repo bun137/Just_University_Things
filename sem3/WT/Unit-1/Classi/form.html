@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type ="text/css" href="external_css.css">
+    <title>Forms</title>
+</head>
+
+<body>
+    <h1>Formsss</h1>
+    <form method="post" action="#" target="new">
+        name: <input type="text" maxlength="10" placeholder="enter your name" >
+        <br><br>
+        password: <input type="password" placeholder="enter your ps">
+        <br><br>
+        email: <input type="email" placeholder="haha-sucker@gmail.com" >
+        <br><br>
+        address: <textarea placeholder="enter your addressi" ></textarea>
+        <br><br>
+        <!--by using the checked attribute you can keep the required option checked when the form loads-->
+        Which of the following MI Movies have you watched: <br><br>
+        <input type="checkbox" name="movie" value="MI-1"> MI-1
+        <input type="checkbox" name="movie" value="MI-2"> MI-2
+        <input type="checkbox" name="movie" value="MI-3"> MI-3
+        <input type="checkbox" name="movie" value="MI-4"> MI-4
+        <input type="checkbox" name="movie" value="MI-5"> MI-5
+        <input type="checkbox" name="movie" value="MI-6"> MI-6
+        <input type="checkbox" name="movie" value="MI-7"> MI-7
+        <hr>
+        Select your FAV MI Movie: <br><br>
+        <input type="radio" name="movie" value="MI-1"> MI-1 <br><br>
+        <!--If no value is checked then the first value would be sent to the server-->
+        <input type="radio" name="movie" value="MI-2"> MI-2 <br><br>
+        <input type="radio" name="movie" value="MI-3"> MI-3 <br><br>
+        <input type="radio" name="movie" value="MI-4"> MI-4 <br><br>
+        <input type="radio" name="movie" value="MI-5"> MI-5 <br><br>
+        <input type="radio" name="movie" value="MI-6"> MI-6 <br><br>
+        <input type="radio" name="movie" value="MI-7"> MI-7
+        <hr>
+        <!--to make dropdown list-->
+        Select your most FAV character:
+        <select name="movie">
+            <option>Indy</option>
+            <option>Marion</option>
+            <option>Henry Walton Jones Sr.</option>
+        </select>
+        <br><br>
+        <p>Select your most FAV character: Dropdown using `multiple` attribute:</p>        <select name="movie" multiple>
+            <option>Indy</option>
+            <option>Marion</option>
+            <option>Henry Walton Jones Sr.</option>
+        </select>
+        <br><br>
+        Select your most FAV character: Dropdown using `multiple` attribute with size:
+        <select name="movie" multiple size="2">
+            <option>Indy</option>
+            <option>Marion</option>
+            <option>Henry Walton Jones Sr.</option>
+        </select>
+        <br><br>
+        Select your most FAV character: using `selected` attribute
+        <!--Indy would be selected by default-->
+        <select name="movie" multiple size="3">
+            <option selected>Indy</option>
+            <option>Marion</option>
+            <option>Henry Walton Jones Sr.</option>
+        </select>
+        <br><br>
+        <!--More tags-->
+        <input type="color" value="#957DAD" id="colorcolor"><br><br>
+        <input type="date" value="2023-08-11"><br><br>
+        <input type="datetime-local"><br><br>
+        <!--to insert only numbers with a min of 1 and max of 10 and step of 0.5-->
+        <input type="number" min="1" max="10" step="0.5"><br><br>
+        <!--to make a slide bar using range -->
+        <input type="range" min="1" max="10" step="0.5"><br><br>
+        <!--For telephone numbers, you can enter more than 10 although the pattern is set, on clicking of submit it tells us the errors-->
+        <input type="tel" name="phone" placeholder="enter 10 digits" pattern="[0-9]{10}"><br><br>
+        <!--to have a phone number in this pattern: 123-456-7890, autofocus attribute : sets the cursor to that input field automatically-->
+        <input type="tel" name="phone" placeholder="xxx-xxx-xxxx" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  autofocus>
+        <br><br>
+
+
+        <button type="submit" value="Submit" onclick="() => alert('hahasucker')"> Submit </button>
+        <button type="reset" value="clear"> Clear or Reset </button>
+        <br><br>
+    </form>
+</body>
+
+</html>

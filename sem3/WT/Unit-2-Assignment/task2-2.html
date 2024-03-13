@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="toggleButtonn">Toggle Element</button>
+    <div id="hiddenEle" class="hidden">
+        This is a hidden element.
+    </div>
+    <script>
+        $(document).ready(function() {
+            $("#toggleButtonn").click(function() {
+                $("#hiddenEle").fadeToggle();
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="counteri" id="counteri_html">
+        
+    </div>
+</body>
+<script>
+    let counteri_js;
+    counteri_js = document.getElementById("counteri_html"); // one sec-- counteri_js is also a NODE - what happened to everything is an OBJECT (sponge-bob cries)
+    counteri_js.innerHTML = "qwertyuiop- click me";
+
+    let body_js = document.querySelector("body"); // js get body from html
+    counteri_js.onclick = () =>{
+        // alert("you clicked me- meanie");
+        body_js.style.backgroundColor = "#737373";
+        let idkWhosChild = document.createElement("h1"); // this a NODE beware: NOW NODE IS AN OBJECT "NODE-OBJECT"
+        idkWhosChild.innerHTML = "idk -_-";
+        body_js.insertBefore(idkWhosChild,counteri_js);
+    }
+
+</script>
+</html>

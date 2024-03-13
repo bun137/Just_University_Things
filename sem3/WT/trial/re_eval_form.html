@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PES Students Re-evaluation Request</title>
+  <link href="css.css" rel="stylesheet">
+</head>
+<body>
+  <div class="logoh1">
+  <img src="pesu_logo.jpeg" alt="PESU Logo" class="logo">
+  <h1>PES Students Re-evaluation Request</h1>
+  </div>
+  <form onsubmit="submitForm(event)">
+    <table>
+      <caption>Re-evaluation Request Form</caption>
+      <tr>
+        <th><label for="name">Name <span class="star">*</span></label></th>
+        <td><input type="text" id="name" required></td>
+      </tr>
+      <tr>
+        <th><label for="srn">SRN <span class="star">*</span></label></th>
+        <td><input type="text" id="srn" required></td>
+      </tr>
+      <tr>
+        <th><label for="email">Email ID <span class="star">*</span> </label></th>
+        <td><input type="email" id="email" required></td>
+      </tr>
+      <tr>
+        <th><label for="number">Mobile Number <span class="star">*</span></label></th>
+        <td><input type="number" id="number" required></td>
+      </tr>
+      <tr>
+        <th><label for="sem">Semester <span class="star">*</span></label></th>
+        <td><select name="sem">
+          <option value="none">None</option>
+          <option value="3">3</option>
+          <option value="5">5</option>
+          <option value="7">7</option>
+        </select></td>
+      </tr>
+
+      <tr>
+        <th><label for="subject">Subject <span class="star">*</span></label></th>
+        <td><input type="text" id="subject" required></td>
+      </tr>
+      <tr>
+        <th><label for="date">Date of Request <span class="star">*</span></label></th>
+        <td><input type="date" id="date" required></td>
+      </tr>
+      <tr>
+        <th><label for="details">Details <span class="star">*</span></label></th>
+        <td><textarea id="details" required></textarea></td>
+      </tr>
+     <tr>
+      <th><label for="gender" id="gender">Gender <span class="star">*</span> </label></th>
+      <td>
+      <input type="radio" name="gender" value="female">Female
+      <input type="radio" name="gender" value="male">Male</td>
+     </tr>
+      <tr>
+        <th></th>
+        <td><input type="checkbox" id="confirm" required>
+          <label for="confirm">I confirm that all the details are appropriate.</label>
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td>
+          <input type="submit" value="Submit">
+          <input type="reset" value="Reset">
+        </td>
+      </tr>
+    </table>
+  </form>
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+      alert("Successfully submitted!");
+    }
+  </script>
+</body>
+</html>
+

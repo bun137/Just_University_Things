@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>button</button>
+    <p>i'll hide if you click button</p>
+  </body>
+  <script>
+    const colorcolor = ["#FF0000", "#00FF00", "#0000FF"];
+
+    // $(document).on("pointermove", ()=>{
+    //     let color = colorcolor[Math.floor(Math.random()*colorcolor.length)];
+
+    //     $("body").css("background-color",color);
+    // })
+
+    $("button").on("mouseover", () => {
+           let color = colorcolor[Math.floor(Math.random()*colorcolor.length)];
+           $("body").css("background-color",color);
+           $("p").animate({
+            width : "69%",
+            opacity: 0.9,
+            fontSize : "4em"
+           }, 2000);
+
+           
+    });
+
+
+  </script>
+</html>

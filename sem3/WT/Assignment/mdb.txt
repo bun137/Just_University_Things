@@ -1,0 +1,1 @@
+mongodb+srv://gurram13775:stupid123@clusteri0.rp37flv.mongodb.net/?retryWrites=true&w=majority

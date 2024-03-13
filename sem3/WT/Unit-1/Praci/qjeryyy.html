@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <div class="child">I'm the first child</div>
+    <br>
+    <div class="child">I'm the second child</div>
+    <br>
+    <div class="child">I'm the third child</div>    
+    
+</body>
+<script>
+    // using js only
+    // let children = document.getElementsByClassName("child");
+    // for (child of children){
+    //     child.style.backgroundColor = "#636363";
+    // }
+
+    
+    // jquery - nice WRITE LESS DO MORE MAGIC
+    //jQuery(".child").css("background-color","#636363").css("text-align","center");
+    $(".child").css("background-color","#636363").css("text-align","center");
+
+</script>
+</html>

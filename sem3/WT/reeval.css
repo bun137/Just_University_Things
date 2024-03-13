@@ -1,0 +1,50 @@
+.topparti {
+    margin: auto;
+    text-align: center;
+    color: orange;
+    
+}
+.logo{
+    height: 300px;
+    width: auto;
+}
+
+body {
+    background-color: rgb(135, 146, 204);
+    color: white;
+}
+
+table {
+    margin: auto;
+}
+
+input[type="text"],input[type="email"],input[type="number"] {
+    background-color: rgb(214, 214, 218);
+    padding: 3px;
+}
+
+input[type="submit"],input[type="reset"] {
+    margin: auto;
+    padding: 5px 10px;
+    background-color: #ffffff;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    
+}
+
+th,td {
+    padding: 8px;
+    border: 2.5px solid rgb(228, 191, 166);
+}
+
+textarea {
+    width: 300px;
+    height: 100px;
+    background-color: rgb(214, 214, 218);
+}
+.star {
+    color: orange;
+}
