@@ -1,0 +1,34 @@
+Difference between Sequencial approach vs Concurrent approach vs Parallel approach:
+
+Imagine you need to prepare dinner for 5 guests.
+
+Sequential approach: This is the classic "one thing at a time" approach.
+You chop vegetables, then cook them, then prepare meat, and then assemble the final dish.
+This takes the longest time (like a single Go routine executing instructions sequentially).
+
+Concurrent approach: You try to juggle tasks to appear more efficient.
+You start chopping vegetables while the pot heats up.
+You marinate the meat while the vegetables cook.
+You assemble the plates while the meat finishes. 
+This feels faster than sequential, but tasks aren't truly simultaneous 
+(like Go routines using channels to communicate and switch execution).
+
+Parallel approach: If you have 5 kitchens (like 5 CPU cores),
+you could assign each task to a separate kitchen. 
+All tasks happen at the same time, leading to the fastest completion 
+(like running multiple Go routines truly simultaneously on different cores).
+However, not all tasks benefit from parallelism due to dependencies or limitations.
+
+Key differences:
+
+Execution: Concurrency allows tasks to overlap in appearance, while parallelism ensures true simultaneous execution.
+Resources: Concurrency works on a single CPU, while parallelism leverages multiple CPUs.
+Complexity: Concurrency can be complex due to coordination and potential race conditions,
+while parallelism might be simpler but resource-dependent.
+
+Go and concurrency: Go excels at concurrency with lightweight goroutines and channels for communication. 
+While true parallelism depends on available cores, Go effectively manages concurrent tasks,
+improving responsiveness and resource utilization.
+
+Remember: Both concurrency and parallelism have their uses. 
+Choose the right approach based on your program's needs and resource constraints.
