@@ -7,5 +7,4 @@ func main() {
 	i := int(f)
 	fmt.Println(i)
 	fmt.Println(f)
-
 }
