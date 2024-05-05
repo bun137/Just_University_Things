@@ -15,7 +15,10 @@ func mul(a, b int) int {
 }
 
 func main() {
-	fmt.Println(square(5))
-	fmt.Println(nega(5))
-	fmt.Println(mul(5, 5))
+	squari := square(10)
+	fmt.Println(squari)
+	negai := nega(10)
+	fmt.Println(negai)
+	muli := mul(10, 10)
+	fmt.Println(muli)
 }
