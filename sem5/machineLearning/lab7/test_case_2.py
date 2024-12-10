@@ -112,6 +112,11 @@ def run_tests(test_cases):
         print(f'\nError in counting checking test cases:\n{e}')
         sys.exit(1)
 
+    try:
+       NaiveBayesClassifier.wordFreq(sentences)
+    except Exception as e:
+       print(f'\nError in plotting word frequencies:\n{e}')
+       sys.exit(1)
     return num_passed
 
 
