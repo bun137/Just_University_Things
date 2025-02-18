@@ -1,0 +1,7 @@
+
+Validsyntax
+Name	size	type	lineno	scope	value
+a	4	2	3	1	-
+b	4	3	4	1	-
+c	8	4	5	1	-
+d	1	1	6	1	-
