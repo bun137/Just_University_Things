@@ -1,0 +1,10 @@
+Error: b not declared
+Error :b at 1
+Valid syntax
+
+Valid syntax
+Name       Size       Type       Line No.   Scope      Value     
+a          4          2          1          1          5.000000
+c          4          3          1          1          6.500000
+d          4          3          1          1          5.440000
+e          4          3          1          1          12.440000
