@@ -3,6 +3,7 @@
 
 int main(int argc, char *argv[]) {
   int nthreads, tid, procs, maxt, inpar, dynamic, nested;
+  omp_set_nested(1);
 
 #pragma omp parallel private(nthreads, tid)
   {

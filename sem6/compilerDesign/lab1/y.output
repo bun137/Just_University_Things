@@ -1,0 +1,1389 @@
+Terminals unused in grammar
+
+    WHILE
+    FOR
+    DO
+    IF
+    ELSE
+    SWITCH
+    CASE
+    BREAK
+    CONTINUE
+    RETURN
+    STRLITERAL
+    HEADER
+    INC
+    DEC
+
+
+State 16 conflicts: 1 shift/reduce
+State 68 conflicts: 2 shift/reduce
+State 86 conflicts: 2 shift/reduce
+State 87 conflicts: 2 shift/reduce
+State 88 conflicts: 1 shift/reduce
+State 105 conflicts: 1 shift/reduce
+
+
+Grammar
+
+    0 $accept: Program $end
+
+    1 Program: Statements
+
+    2 Statements: Statement Statements
+    3           | ε
+
+    4 Statement: VarDecl ';'
+    5          | AssignExpr ';'
+    6          | IfStmt
+    7          | WhileStmt
+    8          | DoWhileStmt
+    9          | ForStmt
+   10          | SwitchStmt
+   11          | BREAK_T ';'
+   12          | CONTINUE_T ';'
+   13          | RETURN_T Expr ';'
+
+   14 VarDecl: Type VarList
+
+   15 Type: INT
+   16     | CHAR
+   17     | FLOAT
+   18     | DOUBLE
+
+   19 VarList: VarList ',' ID
+   20        | ID
+
+   21 AssignExpr: ID '=' Expr
+
+   22 Expr: Expr '+' Term
+   23     | Expr '-' Term
+   24     | Term
+
+   25 Term: Term '*' Factor
+   26     | Term '/' Factor
+   27     | Factor
+
+   28 Factor: '(' Expr ')'
+   29       | ID
+   30       | NUM
+
+   31 IfStmt: IF_T '(' Condition ')' Statement
+   32       | IF_T '(' Condition ')' Statement ELSE_T Statement
+
+   33 WhileStmt: WHILE_T '(' Condition ')' Statement
+
+   34 DoWhileStmt: DO_T Statement WHILE_T '(' Condition ')' ';'
+
+   35 ForStmt: FOR_T '(' AssignExpr ';' Condition ';' AssignExpr ')' Statement
+
+   36 SwitchStmt: SWITCH_T '(' ID ')' '{' CaseList '}'
+
+   37 CaseList: CaseList CASE_T NUM ':' Statements BREAK_T ';'
+   38         | ε
+
+   39 Condition: Expr RelOp Expr
+   40          | '(' Condition ')'
+   41          | Condition ANDAND Condition
+   42          | Condition OROR Condition
+   43          | '!' Condition
+
+   44 RelOp: '<'
+   45      | '>'
+   46      | GREATEREQ
+   47      | LESSEREQ
+   48      | EQCOMP
+   49      | NOTEQ
+
+
+Terminals, with rules where they appear
+
+    $end (0) 0
+    '!' (33) 43
+    '(' (40) 28 31 32 33 34 35 36 40
+    ')' (41) 28 31 32 33 34 35 36 40
+    '*' (42) 25
+    '+' (43) 22
+    ',' (44) 19
+    '-' (45) 23
+    '/' (47) 26
+    ':' (58) 37
+    ';' (59) 4 5 11 12 13 34 35 37
+    '<' (60) 44
+    '=' (61) 21
+    '>' (62) 45
+    '{' (123) 36
+    '}' (125) 36
+    error (256)
+    INT (258) 15
+    CHAR (259) 16
+    FLOAT (260) 17
+    DOUBLE (261) 18
+    WHILE (262)
+    FOR (263)
+    DO (264)
+    IF (265)
+    ELSE (266)
+    SWITCH (267)
+    CASE (268)
+    BREAK (269)
+    CONTINUE (270)
+    RETURN (271)
+    ID (272) 19 20 21 29 36
+    NUM (273) 30 37
+    STRLITERAL (274)
+    HEADER (275)
+    EQCOMP (276) 48
+    GREATEREQ (277) 46
+    LESSEREQ (278) 47
+    NOTEQ (279) 49
+    INC (280)
+    DEC (281)
+    OROR (282) 42
+    ANDAND (283) 41
+    BREAK_T (284) 11 37
+    CONTINUE_T (285) 12
+    RETURN_T (286) 13
+    IF_T (287) 31 32
+    ELSE_T (288) 32
+    WHILE_T (289) 33 34
+    DO_T (290) 34
+    FOR_T (291) 35
+    SWITCH_T (292) 36
+    CASE_T (293) 37
+
+
+Nonterminals, with rules where they appear
+
+    $accept (54)
+        on left: 0
+    Program (55)
+        on left: 1
+        on right: 0
+    Statements (56)
+        on left: 2 3
+        on right: 1 2 37
+    Statement (57)
+        on left: 4 5 6 7 8 9 10 11 12 13
+        on right: 2 31 32 33 34 35
+    VarDecl (58)
+        on left: 14
+        on right: 4
+    Type (59)
+        on left: 15 16 17 18
+        on right: 14
+    VarList (60)
+        on left: 19 20
+        on right: 14 19
+    AssignExpr (61)
+        on left: 21
+        on right: 5 35
+    Expr (62)
+        on left: 22 23 24
+        on right: 13 21 22 23 28 39
+    Term (63)
+        on left: 25 26 27
+        on right: 22 23 24 25 26
+    Factor (64)
+        on left: 28 29 30
+        on right: 25 26 27
+    IfStmt (65)
+        on left: 31 32
+        on right: 6
+    WhileStmt (66)
+        on left: 33
+        on right: 7
+    DoWhileStmt (67)
+        on left: 34
+        on right: 8
+    ForStmt (68)
+        on left: 35
+        on right: 9
+    SwitchStmt (69)
+        on left: 36
+        on right: 10
+    CaseList (70)
+        on left: 37 38
+        on right: 36 37
+    Condition (71)
+        on left: 39 40 41 42 43
+        on right: 31 32 33 34 35 40 41 42 43
+    RelOp (72)
+        on left: 44 45 46 47 48 49
+        on right: 39
+
+
+State 0
+
+    0 $accept: • Program $end
+
+    INT         shift, and go to state 1
+    CHAR        shift, and go to state 2
+    FLOAT       shift, and go to state 3
+    DOUBLE      shift, and go to state 4
+    ID          shift, and go to state 5
+    BREAK_T     shift, and go to state 6
+    CONTINUE_T  shift, and go to state 7
+    RETURN_T    shift, and go to state 8
+    IF_T        shift, and go to state 9
+    WHILE_T     shift, and go to state 10
+    DO_T        shift, and go to state 11
+    FOR_T       shift, and go to state 12
+    SWITCH_T    shift, and go to state 13
+
+    $default  reduce using rule 3 (Statements)
+
+    Program      go to state 14
+    Statements   go to state 15
+    Statement    go to state 16
+    VarDecl      go to state 17
+    Type         go to state 18
+    AssignExpr   go to state 19
+    IfStmt       go to state 20
+    WhileStmt    go to state 21
+    DoWhileStmt  go to state 22
+    ForStmt      go to state 23
+    SwitchStmt   go to state 24
+
+
+State 1
+
+   15 Type: INT •
+
+    $default  reduce using rule 15 (Type)
+
+
+State 2
+
+   16 Type: CHAR •
+
+    $default  reduce using rule 16 (Type)
+
+
+State 3
+
+   17 Type: FLOAT •
+
+    $default  reduce using rule 17 (Type)
+
+
+State 4
+
+   18 Type: DOUBLE •
+
+    $default  reduce using rule 18 (Type)
+
+
+State 5
+
+   21 AssignExpr: ID • '=' Expr
+
+    '='  shift, and go to state 25
+
+
+State 6
+
+   11 Statement: BREAK_T • ';'
+
+    ';'  shift, and go to state 26
+
+
+State 7
+
+   12 Statement: CONTINUE_T • ';'
+
+    ';'  shift, and go to state 27
+
+
+State 8
+
+   13 Statement: RETURN_T • Expr ';'
+
+    ID   shift, and go to state 28
+    NUM  shift, and go to state 29
+    '('  shift, and go to state 30
+
+    Expr    go to state 31
+    Term    go to state 32
+    Factor  go to state 33
+
+
+State 9
+
+   31 IfStmt: IF_T • '(' Condition ')' Statement
+   32       | IF_T • '(' Condition ')' Statement ELSE_T Statement
+
+    '('  shift, and go to state 34
+
+
+State 10
+
+   33 WhileStmt: WHILE_T • '(' Condition ')' Statement
+
+    '('  shift, and go to state 35
+
+
+State 11
+
+   34 DoWhileStmt: DO_T • Statement WHILE_T '(' Condition ')' ';'
+
+    INT         shift, and go to state 1
+    CHAR        shift, and go to state 2
+    FLOAT       shift, and go to state 3
+    DOUBLE      shift, and go to state 4
+    ID          shift, and go to state 5
+    BREAK_T     shift, and go to state 6
+    CONTINUE_T  shift, and go to state 7
+    RETURN_T    shift, and go to state 8
+    IF_T        shift, and go to state 9
+    WHILE_T     shift, and go to state 10
+    DO_T        shift, and go to state 11
+    FOR_T       shift, and go to state 12
+    SWITCH_T    shift, and go to state 13
+
+    Statement    go to state 36
+    VarDecl      go to state 17
+    Type         go to state 18
+    AssignExpr   go to state 19
+    IfStmt       go to state 20
+    WhileStmt    go to state 21
+    DoWhileStmt  go to state 22
+    ForStmt      go to state 23
+    SwitchStmt   go to state 24
+
+
+State 12
+
+   35 ForStmt: FOR_T • '(' AssignExpr ';' Condition ';' AssignExpr ')' Statement
+
+    '('  shift, and go to state 37
+
+
+State 13
+
+   36 SwitchStmt: SWITCH_T • '(' ID ')' '{' CaseList '}'
+
+    '('  shift, and go to state 38
+
+
+State 14
+
+    0 $accept: Program • $end
+
+    $end  shift, and go to state 39
+
+
+State 15
+
+    1 Program: Statements •
+
+    $default  reduce using rule 1 (Program)
+
+
+State 16
+
+    2 Statements: Statement • Statements
+
+    INT         shift, and go to state 1
+    CHAR        shift, and go to state 2
+    FLOAT       shift, and go to state 3
+    DOUBLE      shift, and go to state 4
+    ID          shift, and go to state 5
+    BREAK_T     shift, and go to state 6
+    CONTINUE_T  shift, and go to state 7
+    RETURN_T    shift, and go to state 8
+    IF_T        shift, and go to state 9
+    WHILE_T     shift, and go to state 10
+    DO_T        shift, and go to state 11
+    FOR_T       shift, and go to state 12
+    SWITCH_T    shift, and go to state 13
+
+    BREAK_T   [reduce using rule 3 (Statements)]
+    $default  reduce using rule 3 (Statements)
+
+    Statements   go to state 40
+    Statement    go to state 16
+    VarDecl      go to state 17
+    Type         go to state 18
+    AssignExpr   go to state 19
+    IfStmt       go to state 20
+    WhileStmt    go to state 21
+    DoWhileStmt  go to state 22
+    ForStmt      go to state 23
+    SwitchStmt   go to state 24
+
+
+State 17
+
+    4 Statement: VarDecl • ';'
+
+    ';'  shift, and go to state 41
+
+
+State 18
+
+   14 VarDecl: Type • VarList
+
+    ID  shift, and go to state 42
+
+    VarList  go to state 43
+
+
+State 19
+
+    5 Statement: AssignExpr • ';'
+
+    ';'  shift, and go to state 44
+
+
+State 20
+
+    6 Statement: IfStmt •
+
+    $default  reduce using rule 6 (Statement)
+
+
+State 21
+
+    7 Statement: WhileStmt •
+
+    $default  reduce using rule 7 (Statement)
+
+
+State 22
+
+    8 Statement: DoWhileStmt •
+
+    $default  reduce using rule 8 (Statement)
+
+
+State 23
+
+    9 Statement: ForStmt •
+
+    $default  reduce using rule 9 (Statement)
+
+
+State 24
+
+   10 Statement: SwitchStmt •
+
+    $default  reduce using rule 10 (Statement)
+
+
+State 25
+
+   21 AssignExpr: ID '=' • Expr
+
+    ID   shift, and go to state 28
+    NUM  shift, and go to state 29
+    '('  shift, and go to state 30
+
+    Expr    go to state 45
+    Term    go to state 32
+    Factor  go to state 33
+
+
+State 26
+
+   11 Statement: BREAK_T ';' •
+
+    $default  reduce using rule 11 (Statement)
+
+
+State 27
+
+   12 Statement: CONTINUE_T ';' •
+
+    $default  reduce using rule 12 (Statement)
+
+
+State 28
+
+   29 Factor: ID •
+
+    $default  reduce using rule 29 (Factor)
+
+
+State 29
+
+   30 Factor: NUM •
+
+    $default  reduce using rule 30 (Factor)
+
+
+State 30
+
+   28 Factor: '(' • Expr ')'
+
+    ID   shift, and go to state 28
+    NUM  shift, and go to state 29
+    '('  shift, and go to state 30
+
+    Expr    go to state 46
+    Term    go to state 32
+    Factor  go to state 33
+
+
+State 31
+
+   13 Statement: RETURN_T Expr • ';'
+   22 Expr: Expr • '+' Term
+   23     | Expr • '-' Term
+
+    ';'  shift, and go to state 47
+    '+'  shift, and go to state 48
+    '-'  shift, and go to state 49
+
+
+State 32
+
+   24 Expr: Term •
+   25 Term: Term • '*' Factor
+   26     | Term • '/' Factor
+
+    '*'  shift, and go to state 50
+    '/'  shift, and go to state 51
+
+    $default  reduce using rule 24 (Expr)
+
+
+State 33
+
+   27 Term: Factor •
+
+    $default  reduce using rule 27 (Term)
+
+
+State 34
+
+   31 IfStmt: IF_T '(' • Condition ')' Statement
+   32       | IF_T '(' • Condition ')' Statement ELSE_T Statement
+
+    ID   shift, and go to state 28
+    NUM  shift, and go to state 29
+    '('  shift, and go to state 52
+    '!'  shift, and go to state 53
+
+    Expr       go to state 54
+    Term       go to state 32
+    Factor     go to state 33
+    Condition  go to state 55
+
+
+State 35
+
+   33 WhileStmt: WHILE_T '(' • Condition ')' Statement
+
+    ID   shift, and go to state 28
+    NUM  shift, and go to state 29
+    '('  shift, and go to state 52
+    '!'  shift, and go to state 53
+
+    Expr       go to state 54
+    Term       go to state 32
+    Factor     go to state 33
+    Condition  go to state 56
+
+
+State 36
+
+   34 DoWhileStmt: DO_T Statement • WHILE_T '(' Condition ')' ';'
+
+    WHILE_T  shift, and go to state 57
+
+
+State 37
+
+   35 ForStmt: FOR_T '(' • AssignExpr ';' Condition ';' AssignExpr ')' Statement
+
+    ID  shift, and go to state 5
+
+    AssignExpr  go to state 58
+
+
+State 38
+
+   36 SwitchStmt: SWITCH_T '(' • ID ')' '{' CaseList '}'
+
+    ID  shift, and go to state 59
+
+
+State 39
+
+    0 $accept: Program $end •
+
+    $default  accept
+
+
+State 40
+
+    2 Statements: Statement Statements •
+
+    $default  reduce using rule 2 (Statements)
+
+
+State 41
+
+    4 Statement: VarDecl ';' •
+
+    $default  reduce using rule 4 (Statement)
+
+
+State 42
+
+   20 VarList: ID •
+
+    $default  reduce using rule 20 (VarList)
+
+
+State 43
+
+   14 VarDecl: Type VarList •
+   19 VarList: VarList • ',' ID
+
+    ','  shift, and go to state 60
+
+    $default  reduce using rule 14 (VarDecl)
+
+
+State 44
+
+    5 Statement: AssignExpr ';' •
+
+    $default  reduce using rule 5 (Statement)
+
+
+State 45
+
+   21 AssignExpr: ID '=' Expr •
+   22 Expr: Expr • '+' Term
+   23     | Expr • '-' Term
+
+    '+'  shift, and go to state 48
+    '-'  shift, and go to state 49
+
+    $default  reduce using rule 21 (AssignExpr)
+
+
+State 46
+
+   22 Expr: Expr • '+' Term
+   23     | Expr • '-' Term
+   28 Factor: '(' Expr • ')'
+
+    '+'  shift, and go to state 48
+    '-'  shift, and go to state 49
+    ')'  shift, and go to state 61
+
+
+State 47
+
+   13 Statement: RETURN_T Expr ';' •
+
+    $default  reduce using rule 13 (Statement)
+
+
+State 48
+
+   22 Expr: Expr '+' • Term
+
+    ID   shift, and go to state 28
+    NUM  shift, and go to state 29
+    '('  shift, and go to state 30
+
+    Term    go to state 62
+    Factor  go to state 33
+
+
+State 49
+
+   23 Expr: Expr '-' • Term
+
+    ID   shift, and go to state 28
+    NUM  shift, and go to state 29
+    '('  shift, and go to state 30
+
+    Term    go to state 63
+    Factor  go to state 33
+
+
+State 50
+
+   25 Term: Term '*' • Factor
+
+    ID   shift, and go to state 28
+    NUM  shift, and go to state 29
+    '('  shift, and go to state 30
+
+    Factor  go to state 64
+
+
+State 51
+
+   26 Term: Term '/' • Factor
+
+    ID   shift, and go to state 28
+    NUM  shift, and go to state 29
+    '('  shift, and go to state 30
+
+    Factor  go to state 65
+
+
+State 52
+
+   28 Factor: '(' • Expr ')'
+   40 Condition: '(' • Condition ')'
+
+    ID   shift, and go to state 28
+    NUM  shift, and go to state 29
+    '('  shift, and go to state 52
+    '!'  shift, and go to state 53
+
+    Expr       go to state 66
+    Term       go to state 32
+    Factor     go to state 33
+    Condition  go to state 67
+
+
+State 53
+
+   43 Condition: '!' • Condition
+
+    ID   shift, and go to state 28
+    NUM  shift, and go to state 29
+    '('  shift, and go to state 52
+    '!'  shift, and go to state 53
+
+    Expr       go to state 54
+    Term       go to state 32
+    Factor     go to state 33
+    Condition  go to state 68
+
+
+State 54
+
+   22 Expr: Expr • '+' Term
+   23     | Expr • '-' Term
+   39 Condition: Expr • RelOp Expr
+
+    EQCOMP     shift, and go to state 69
+    GREATEREQ  shift, and go to state 70
+    LESSEREQ   shift, and go to state 71
+    NOTEQ      shift, and go to state 72
+    '+'        shift, and go to state 48
+    '-'        shift, and go to state 49
+    '<'        shift, and go to state 73
+    '>'        shift, and go to state 74
+
+    RelOp  go to state 75
+
+
+State 55
+
+   31 IfStmt: IF_T '(' Condition • ')' Statement
+   32       | IF_T '(' Condition • ')' Statement ELSE_T Statement
+   41 Condition: Condition • ANDAND Condition
+   42          | Condition • OROR Condition
+
+    OROR    shift, and go to state 76
+    ANDAND  shift, and go to state 77
+    ')'     shift, and go to state 78
+
+
+State 56
+
+   33 WhileStmt: WHILE_T '(' Condition • ')' Statement
+   41 Condition: Condition • ANDAND Condition
+   42          | Condition • OROR Condition
+
+    OROR    shift, and go to state 76
+    ANDAND  shift, and go to state 77
+    ')'     shift, and go to state 79
+
+
+State 57
+
+   34 DoWhileStmt: DO_T Statement WHILE_T • '(' Condition ')' ';'
+
+    '('  shift, and go to state 80
+
+
+State 58
+
+   35 ForStmt: FOR_T '(' AssignExpr • ';' Condition ';' AssignExpr ')' Statement
+
+    ';'  shift, and go to state 81
+
+
+State 59
+
+   36 SwitchStmt: SWITCH_T '(' ID • ')' '{' CaseList '}'
+
+    ')'  shift, and go to state 82
+
+
+State 60
+
+   19 VarList: VarList ',' • ID
+
+    ID  shift, and go to state 83
+
+
+State 61
+
+   28 Factor: '(' Expr ')' •
+
+    $default  reduce using rule 28 (Factor)
+
+
+State 62
+
+   22 Expr: Expr '+' Term •
+   25 Term: Term • '*' Factor
+   26     | Term • '/' Factor
+
+    '*'  shift, and go to state 50
+    '/'  shift, and go to state 51
+
+    $default  reduce using rule 22 (Expr)
+
+
+State 63
+
+   23 Expr: Expr '-' Term •
+   25 Term: Term • '*' Factor
+   26     | Term • '/' Factor
+
+    '*'  shift, and go to state 50
+    '/'  shift, and go to state 51
+
+    $default  reduce using rule 23 (Expr)
+
+
+State 64
+
+   25 Term: Term '*' Factor •
+
+    $default  reduce using rule 25 (Term)
+
+
+State 65
+
+   26 Term: Term '/' Factor •
+
+    $default  reduce using rule 26 (Term)
+
+
+State 66
+
+   22 Expr: Expr • '+' Term
+   23     | Expr • '-' Term
+   28 Factor: '(' Expr • ')'
+   39 Condition: Expr • RelOp Expr
+
+    EQCOMP     shift, and go to state 69
+    GREATEREQ  shift, and go to state 70
+    LESSEREQ   shift, and go to state 71
+    NOTEQ      shift, and go to state 72
+    '+'        shift, and go to state 48
+    '-'        shift, and go to state 49
+    ')'        shift, and go to state 61
+    '<'        shift, and go to state 73
+    '>'        shift, and go to state 74
+
+    RelOp  go to state 75
+
+
+State 67
+
+   40 Condition: '(' Condition • ')'
+   41          | Condition • ANDAND Condition
+   42          | Condition • OROR Condition
+
+    OROR    shift, and go to state 76
+    ANDAND  shift, and go to state 77
+    ')'     shift, and go to state 84
+
+
+State 68
+
+   41 Condition: Condition • ANDAND Condition
+   42          | Condition • OROR Condition
+   43          | '!' Condition •
+
+    OROR    shift, and go to state 76
+    ANDAND  shift, and go to state 77
+
+    OROR      [reduce using rule 43 (Condition)]
+    ANDAND    [reduce using rule 43 (Condition)]
+    $default  reduce using rule 43 (Condition)
+
+
+State 69
+
+   48 RelOp: EQCOMP •
+
+    $default  reduce using rule 48 (RelOp)
+
+
+State 70
+
+   46 RelOp: GREATEREQ •
+
+    $default  reduce using rule 46 (RelOp)
+
+
+State 71
+
+   47 RelOp: LESSEREQ •
+
+    $default  reduce using rule 47 (RelOp)
+
+
+State 72
+
+   49 RelOp: NOTEQ •
+
+    $default  reduce using rule 49 (RelOp)
+
+
+State 73
+
+   44 RelOp: '<' •
+
+    $default  reduce using rule 44 (RelOp)
+
+
+State 74
+
+   45 RelOp: '>' •
+
+    $default  reduce using rule 45 (RelOp)
+
+
+State 75
+
+   39 Condition: Expr RelOp • Expr
+
+    ID   shift, and go to state 28
+    NUM  shift, and go to state 29
+    '('  shift, and go to state 30
+
+    Expr    go to state 85
+    Term    go to state 32
+    Factor  go to state 33
+
+
+State 76
+
+   42 Condition: Condition OROR • Condition
+
+    ID   shift, and go to state 28
+    NUM  shift, and go to state 29
+    '('  shift, and go to state 52
+    '!'  shift, and go to state 53
+
+    Expr       go to state 54
+    Term       go to state 32
+    Factor     go to state 33
+    Condition  go to state 86
+
+
+State 77
+
+   41 Condition: Condition ANDAND • Condition
+
+    ID   shift, and go to state 28
+    NUM  shift, and go to state 29
+    '('  shift, and go to state 52
+    '!'  shift, and go to state 53
+
+    Expr       go to state 54
+    Term       go to state 32
+    Factor     go to state 33
+    Condition  go to state 87
+
+
+State 78
+
+   31 IfStmt: IF_T '(' Condition ')' • Statement
+   32       | IF_T '(' Condition ')' • Statement ELSE_T Statement
+
+    INT         shift, and go to state 1
+    CHAR        shift, and go to state 2
+    FLOAT       shift, and go to state 3
+    DOUBLE      shift, and go to state 4
+    ID          shift, and go to state 5
+    BREAK_T     shift, and go to state 6
+    CONTINUE_T  shift, and go to state 7
+    RETURN_T    shift, and go to state 8
+    IF_T        shift, and go to state 9
+    WHILE_T     shift, and go to state 10
+    DO_T        shift, and go to state 11
+    FOR_T       shift, and go to state 12
+    SWITCH_T    shift, and go to state 13
+
+    Statement    go to state 88
+    VarDecl      go to state 17
+    Type         go to state 18
+    AssignExpr   go to state 19
+    IfStmt       go to state 20
+    WhileStmt    go to state 21
+    DoWhileStmt  go to state 22
+    ForStmt      go to state 23
+    SwitchStmt   go to state 24
+
+
+State 79
+
+   33 WhileStmt: WHILE_T '(' Condition ')' • Statement
+
+    INT         shift, and go to state 1
+    CHAR        shift, and go to state 2
+    FLOAT       shift, and go to state 3
+    DOUBLE      shift, and go to state 4
+    ID          shift, and go to state 5
+    BREAK_T     shift, and go to state 6
+    CONTINUE_T  shift, and go to state 7
+    RETURN_T    shift, and go to state 8
+    IF_T        shift, and go to state 9
+    WHILE_T     shift, and go to state 10
+    DO_T        shift, and go to state 11
+    FOR_T       shift, and go to state 12
+    SWITCH_T    shift, and go to state 13
+
+    Statement    go to state 89
+    VarDecl      go to state 17
+    Type         go to state 18
+    AssignExpr   go to state 19
+    IfStmt       go to state 20
+    WhileStmt    go to state 21
+    DoWhileStmt  go to state 22
+    ForStmt      go to state 23
+    SwitchStmt   go to state 24
+
+
+State 80
+
+   34 DoWhileStmt: DO_T Statement WHILE_T '(' • Condition ')' ';'
+
+    ID   shift, and go to state 28
+    NUM  shift, and go to state 29
+    '('  shift, and go to state 52
+    '!'  shift, and go to state 53
+
+    Expr       go to state 54
+    Term       go to state 32
+    Factor     go to state 33
+    Condition  go to state 90
+
+
+State 81
+
+   35 ForStmt: FOR_T '(' AssignExpr ';' • Condition ';' AssignExpr ')' Statement
+
+    ID   shift, and go to state 28
+    NUM  shift, and go to state 29
+    '('  shift, and go to state 52
+    '!'  shift, and go to state 53
+
+    Expr       go to state 54
+    Term       go to state 32
+    Factor     go to state 33
+    Condition  go to state 91
+
+
+State 82
+
+   36 SwitchStmt: SWITCH_T '(' ID ')' • '{' CaseList '}'
+
+    '{'  shift, and go to state 92
+
+
+State 83
+
+   19 VarList: VarList ',' ID •
+
+    $default  reduce using rule 19 (VarList)
+
+
+State 84
+
+   40 Condition: '(' Condition ')' •
+
+    $default  reduce using rule 40 (Condition)
+
+
+State 85
+
+   22 Expr: Expr • '+' Term
+   23     | Expr • '-' Term
+   39 Condition: Expr RelOp Expr •
+
+    '+'  shift, and go to state 48
+    '-'  shift, and go to state 49
+
+    $default  reduce using rule 39 (Condition)
+
+
+State 86
+
+   41 Condition: Condition • ANDAND Condition
+   42          | Condition • OROR Condition
+   42          | Condition OROR Condition •
+
+    OROR    shift, and go to state 76
+    ANDAND  shift, and go to state 77
+
+    OROR      [reduce using rule 42 (Condition)]
+    ANDAND    [reduce using rule 42 (Condition)]
+    $default  reduce using rule 42 (Condition)
+
+
+State 87
+
+   41 Condition: Condition • ANDAND Condition
+   41          | Condition ANDAND Condition •
+   42          | Condition • OROR Condition
+
+    OROR    shift, and go to state 76
+    ANDAND  shift, and go to state 77
+
+    OROR      [reduce using rule 41 (Condition)]
+    ANDAND    [reduce using rule 41 (Condition)]
+    $default  reduce using rule 41 (Condition)
+
+
+State 88
+
+   31 IfStmt: IF_T '(' Condition ')' Statement •
+   32       | IF_T '(' Condition ')' Statement • ELSE_T Statement
+
+    ELSE_T  shift, and go to state 93
+
+    ELSE_T    [reduce using rule 31 (IfStmt)]
+    $default  reduce using rule 31 (IfStmt)
+
+
+State 89
+
+   33 WhileStmt: WHILE_T '(' Condition ')' Statement •
+
+    $default  reduce using rule 33 (WhileStmt)
+
+
+State 90
+
+   34 DoWhileStmt: DO_T Statement WHILE_T '(' Condition • ')' ';'
+   41 Condition: Condition • ANDAND Condition
+   42          | Condition • OROR Condition
+
+    OROR    shift, and go to state 76
+    ANDAND  shift, and go to state 77
+    ')'     shift, and go to state 94
+
+
+State 91
+
+   35 ForStmt: FOR_T '(' AssignExpr ';' Condition • ';' AssignExpr ')' Statement
+   41 Condition: Condition • ANDAND Condition
+   42          | Condition • OROR Condition
+
+    OROR    shift, and go to state 76
+    ANDAND  shift, and go to state 77
+    ';'     shift, and go to state 95
+
+
+State 92
+
+   36 SwitchStmt: SWITCH_T '(' ID ')' '{' • CaseList '}'
+
+    $default  reduce using rule 38 (CaseList)
+
+    CaseList  go to state 96
+
+
+State 93
+
+   32 IfStmt: IF_T '(' Condition ')' Statement ELSE_T • Statement
+
+    INT         shift, and go to state 1
+    CHAR        shift, and go to state 2
+    FLOAT       shift, and go to state 3
+    DOUBLE      shift, and go to state 4
+    ID          shift, and go to state 5
+    BREAK_T     shift, and go to state 6
+    CONTINUE_T  shift, and go to state 7
+    RETURN_T    shift, and go to state 8
+    IF_T        shift, and go to state 9
+    WHILE_T     shift, and go to state 10
+    DO_T        shift, and go to state 11
+    FOR_T       shift, and go to state 12
+    SWITCH_T    shift, and go to state 13
+
+    Statement    go to state 97
+    VarDecl      go to state 17
+    Type         go to state 18
+    AssignExpr   go to state 19
+    IfStmt       go to state 20
+    WhileStmt    go to state 21
+    DoWhileStmt  go to state 22
+    ForStmt      go to state 23
+    SwitchStmt   go to state 24
+
+
+State 94
+
+   34 DoWhileStmt: DO_T Statement WHILE_T '(' Condition ')' • ';'
+
+    ';'  shift, and go to state 98
+
+
+State 95
+
+   35 ForStmt: FOR_T '(' AssignExpr ';' Condition ';' • AssignExpr ')' Statement
+
+    ID  shift, and go to state 5
+
+    AssignExpr  go to state 99
+
+
+State 96
+
+   36 SwitchStmt: SWITCH_T '(' ID ')' '{' CaseList • '}'
+   37 CaseList: CaseList • CASE_T NUM ':' Statements BREAK_T ';'
+
+    CASE_T  shift, and go to state 100
+    '}'     shift, and go to state 101
+
+
+State 97
+
+   32 IfStmt: IF_T '(' Condition ')' Statement ELSE_T Statement •
+
+    $default  reduce using rule 32 (IfStmt)
+
+
+State 98
+
+   34 DoWhileStmt: DO_T Statement WHILE_T '(' Condition ')' ';' •
+
+    $default  reduce using rule 34 (DoWhileStmt)
+
+
+State 99
+
+   35 ForStmt: FOR_T '(' AssignExpr ';' Condition ';' AssignExpr • ')' Statement
+
+    ')'  shift, and go to state 102
+
+
+State 100
+
+   37 CaseList: CaseList CASE_T • NUM ':' Statements BREAK_T ';'
+
+    NUM  shift, and go to state 103
+
+
+State 101
+
+   36 SwitchStmt: SWITCH_T '(' ID ')' '{' CaseList '}' •
+
+    $default  reduce using rule 36 (SwitchStmt)
+
+
+State 102
+
+   35 ForStmt: FOR_T '(' AssignExpr ';' Condition ';' AssignExpr ')' • Statement
+
+    INT         shift, and go to state 1
+    CHAR        shift, and go to state 2
+    FLOAT       shift, and go to state 3
+    DOUBLE      shift, and go to state 4
+    ID          shift, and go to state 5
+    BREAK_T     shift, and go to state 6
+    CONTINUE_T  shift, and go to state 7
+    RETURN_T    shift, and go to state 8
+    IF_T        shift, and go to state 9
+    WHILE_T     shift, and go to state 10
+    DO_T        shift, and go to state 11
+    FOR_T       shift, and go to state 12
+    SWITCH_T    shift, and go to state 13
+
+    Statement    go to state 104
+    VarDecl      go to state 17
+    Type         go to state 18
+    AssignExpr   go to state 19
+    IfStmt       go to state 20
+    WhileStmt    go to state 21
+    DoWhileStmt  go to state 22
+    ForStmt      go to state 23
+    SwitchStmt   go to state 24
+
+
+State 103
+
+   37 CaseList: CaseList CASE_T NUM • ':' Statements BREAK_T ';'
+
+    ':'  shift, and go to state 105
+
+
+State 104
+
+   35 ForStmt: FOR_T '(' AssignExpr ';' Condition ';' AssignExpr ')' Statement •
+
+    $default  reduce using rule 35 (ForStmt)
+
+
+State 105
+
+   37 CaseList: CaseList CASE_T NUM ':' • Statements BREAK_T ';'
+
+    INT         shift, and go to state 1
+    CHAR        shift, and go to state 2
+    FLOAT       shift, and go to state 3
+    DOUBLE      shift, and go to state 4
+    ID          shift, and go to state 5
+    BREAK_T     shift, and go to state 6
+    CONTINUE_T  shift, and go to state 7
+    RETURN_T    shift, and go to state 8
+    IF_T        shift, and go to state 9
+    WHILE_T     shift, and go to state 10
+    DO_T        shift, and go to state 11
+    FOR_T       shift, and go to state 12
+    SWITCH_T    shift, and go to state 13
+
+    BREAK_T  [reduce using rule 3 (Statements)]
+
+    Statements   go to state 106
+    Statement    go to state 16
+    VarDecl      go to state 17
+    Type         go to state 18
+    AssignExpr   go to state 19
+    IfStmt       go to state 20
+    WhileStmt    go to state 21
+    DoWhileStmt  go to state 22
+    ForStmt      go to state 23
+    SwitchStmt   go to state 24
+
+
+State 106
+
+   37 CaseList: CaseList CASE_T NUM ':' Statements • BREAK_T ';'
+
+    BREAK_T  shift, and go to state 107
+
+
+State 107
+
+   37 CaseList: CaseList CASE_T NUM ':' Statements BREAK_T • ';'
+
+    ';'  shift, and go to state 108
+
+
+State 108
+
+   37 CaseList: CaseList CASE_T NUM ':' Statements BREAK_T ';' •
+
+    $default  reduce using rule 37 (CaseList)

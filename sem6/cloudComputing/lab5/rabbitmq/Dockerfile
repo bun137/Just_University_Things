@@ -1,0 +1,7 @@
+FROM rabbitmq:3-management
+EXPOSE 5672 15672
+ENV RABBITMQ_DEFAULT_USER=PES2UG22CS209
+ENV RABBITMQ_DEFAULT_PASS=password
+ENV RABBITMQ_HOST=rabbitmqcontainer
+CMD ["rabbitmq-server"]
+
